@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!-- index.html -->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#f6f3ec">
+  <title>UIDBuy spreadsheet en español | Categorías, tallas y fotos QC</title>
+  <meta name="description" content="Explora diez categorías en esta guía UIDBuy spreadsheet. Aprende a comparar tallas, comprobar enlaces de vendedores y revisar fotos QC antes de pedir.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UIDBuy spreadsheet | Guía de compra en español">
+  <meta property="og:description" content="Encuentra tu categoría y comprueba la variante, las medidas y las fotos antes de hacer un pedido.">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f6f3ec;
+      --white: #fffdf8;
+      --ink: #221c2c;
+      --muted: #5b5264;
+      --violet: #4d2b71;
+      --line: #d8cfe0;
+      --lime: #e8efac;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.6; }
+    a { color: inherit; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--violet); outline-offset: 4px; }
+    h1, h2, h3, p, figure { margin: 0; }
+    h1, h2, h3 { line-height: 1.12; overflow-wrap: anywhere; }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 700; }
+    h1 { font-size: clamp(2.85rem, 7.3vw, 6.2rem); letter-spacing: -.065em; }
+    h2 { font-size: clamp(1.85rem, 4vw, 3rem); letter-spacing: -.035em; }
+    h3 { font-size: 1.18rem; }
+    img { display: block; width: 100%; height: auto; }
+    .wrap { width: min(72rem, 100% - 2rem); margin-inline: auto; }
+    .masthead { border-bottom: 1px solid var(--line); }
+    .masthead .wrap {
+      min-height: 4.25rem; display: flex; align-items: center; justify-content: space-between;
+      gap: .75rem 1.5rem; flex-wrap: wrap; padding-block: .7rem;
+    }
+    .brand { color: var(--violet); font-weight: 800; text-decoration: none; }
+    .small { color: var(--muted); font-size: .88rem; }
+    .hero {
+      display: grid; grid-template-columns: 1.22fr 1fr; gap: clamp(1.25rem, 4vw, 3.5rem);
+      align-items: center; padding-block: clamp(1.65rem, 5vw, 4rem) 1.75rem;
+    }
+    .hero p { margin-top: .9rem; max-width: 35rem; font-size: clamp(1rem, 2vw, 1.23rem); color: var(--muted); }
+    .button {
+      display: inline-flex; align-items: center; min-height: 2.85rem; margin-top: 1.15rem;
+      padding: .55rem 1rem; border-radius: .3rem; background: var(--violet);
+      color: #fff; font-weight: 750; text-decoration: none;
+    }
+    .button:hover { background: #382052; }
+    .hero figure { border-radius: .55rem; overflow: hidden; background: var(--lime); }
+    .hero img { aspect-ratio: 4 / 3; object-fit: contain; }
+    figcaption { padding: .5rem .8rem; font-size: .85rem; }
+    .section { margin-block: 2.3rem 3.5rem; }
+    .section > p { margin-top: .6rem; max-width: 65ch; color: var(--muted); }
+    .categories { padding: clamp(.9rem, 3vw, 1.65rem); background: var(--lime); border-radius: .55rem; }
+    .categories ul {
+      list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: .55rem; padding: 0; margin: 1rem 0 0;
+    }
+    .categories a {
+      display: flex; align-items: center; justify-content: space-between; gap: .25rem;
+      height: 100%; min-height: 3rem; padding: .55rem .7rem; border-radius: .3rem;
+      background: var(--white); font-weight: 700; line-height: 1.25; text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .categories a:hover { color: #fff; background: var(--violet); }
+    .gallery, .articles { display: grid; gap: .85rem; margin-top: 1rem; }
+    .gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .gallery figure { background: var(--white); border: 1px solid var(--line); border-radius: .45rem; overflow: hidden; }
+    .gallery img { aspect-ratio: 1; object-fit: contain; background: #fff; }
+    .articles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    article, .queries { background: var(--white); border: 1px solid var(--line); padding: 1.1rem; border-radius: .45rem; }
+    article p { margin-top: .65rem; }
+    article ul { margin: .65rem 0 0; padding-left: 1.2rem; }
+    article li + li { margin-top: .4rem; }
+    .queries { margin-top: 1rem; }
+    summary { cursor: pointer; font-weight: 750; padding-block: .55rem; }
+    .queries ul { columns: 3; padding-left: 1.2rem; margin: .6rem 0 0; }
+    .queries li { break-inside: avoid; margin-bottom: .35rem; }
+    .faq { margin-top: .85rem; }
+    .faq details { padding-block: .25rem; border-bottom: 1px solid var(--line); }
+    .faq p { padding-bottom: .8rem; max-width: 68ch; }
+    footer { border-top: 1px solid var(--line); padding-block: 1.45rem; }
+    footer p { margin-top: .45rem; }
+    @media (max-width: 54rem) {
+      .categories ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .queries ul { columns: 2; }
+    }
+    @media (max-width: 38rem) {
+      .hero, .articles { grid-template-columns: 1fr; }
+      .categories ul, .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .queries ul { columns: 1; }
+      .section { margin-block: 1.65rem 2.4rem; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "inLanguage": "es",
+    "name": "UIDBuy spreadsheet en español | Categorías, tallas y fotos QC",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es un UIDBuy spreadsheet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Es una hoja de referencia para guardar enlaces de productos y comparar vendedor, color, talla y fecha de revisión antes de hacer un pedido."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué enlaces se abren desde esta página?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Las categorías abren sus secciones en Hipobuyfind. El resto de enlaces abre la portada de Hipobuyfind. Esta guía es independiente de UIDBuy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Una foto QC confirma la autenticidad?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Una foto de control de calidad ayuda a revisar detalles visibles y la variante recibida. Para comprobar la autenticidad, busca documentación de procedencia o recurre a un servicio de autenticación."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué hago si el enlace ya no abre?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Busca el nombre exacto del modelo y la variante. Si aparece otra ficha, comprueba el vendedor, las fotos y las medidas antes de sustituir el enlace en tu hoja."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo comparo el envío a España u otro país?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pide una estimación para el país de destino con el peso y las dimensiones del paquete. Comprueba qué cargos están incluidos y si la tarifa se calcula por peso real o volumétrico."
+        }
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/qzmnh/">
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap">
+      <a class="brand" href="https://www.hipobuyfind.com">hipobuyfind.com</a>
+      <span class="small">Guía de compra independiente</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">UIDBuy spreadsheet</h1>
+        <p>Una hoja de referencia te ayuda a recordar qué encontraste y qué queda por comprobar. Empieza por una categoría y compara el enlace del vendedor, la talla exacta y las fotos de la variante que te interesa.</p>
+        <a class="button" href="https://www.hipobuyfind.com">Explorar Hipobuyfind <span aria-hidden="true">&nbsp;↗</span></a>
+      </div>
+      <figure>
+        <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto%2Cq_auto%3Aeco%2Cc_scale%2Cw_300%2Cu_9ddf04c7-2a9a-4d76-add1-d15af8f0263d%2Cc_scale%2Cfl_relative%2Cw_1.0%2Ch_1.0%2Cfl_layer_apply/f888b4a3-a02a-420d-93e3-cb33c3bb30ac/AIR%2BFORCE%2B1%2B%2707.png"
+             width="640" height="480" alt="Zapatilla Nike Air Force 1 ’07 blanca con puntera perforada"
+             fetchpriority="high" loading="eager" decoding="async">
+        <figcaption>Nike Air Force 1 ’07 · Referencia visual de calzado</figcaption>
+      </figure>
+    </section>
+
+    <nav class="categories" aria-labelledby="categories-title">
+      <h2 id="categories-title">Explorar por categoría</h2>
+      <ul>
+        <li><a href="https://hipobuyfind.com/category-911-Shoes.html">Calzado <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Sudaderas y jerséis <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-913-T-Shirts.html">Camisetas <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-914-Jackets.html">Chaquetas <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Pantalones y shorts <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-916-Headwear.html">Gorras y sombreros <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-917-Sets.html">Conjuntos <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Ropa interior <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-919-Jersey.html">Camisetas deportivas <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-920-Accessories.html">Accesorios <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </nav>
+
+    <section class="section" aria-labelledby="visual-title">
+      <h2 id="visual-title">Qué detalle mirar en cada pieza</h2>
+      <p>Estas imágenes sirven como referencias de diseño. Al comparar fichas, busca imágenes de la variante seleccionada y primeros planos de los detalles que te importan.</p>
+      <div class="gallery">
+        <figure>
+          <img src="https://eu.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-double-face-reversible-workwear-blouson--HUB41WWLD6A1_PM1_Cropped%20view.png?hei=640&amp;wid=640"
+               width="640" height="640" alt="Modelo con chaqueta reversible Louis Vuitton y gorra"
+               loading="lazy" decoding="async">
+          <figcaption><strong>Louis Vuitton</strong> · Pide ver las dos caras de una prenda reversible.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://www.mrporter.com/variants/images/1647597277766178/ou/w500_q60.jpg"
+               width="500" height="500" alt="Modelo con gorra Gucci de monograma beige y jersey oscuro"
+               loading="lazy" decoding="async">
+          <figcaption><strong>Gucci</strong> · Para una gorra ajustable, revisa el cierre y el contorno.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://kream-phinf.pstatic.net/MjAyNTA3MzFfMjcx/MDAxNzUzODk4MTAxODgy.fK--fMJ2bH-7_BcgY1NvMo-ujFudAj0C3bSTnAXOkWQg.DerqZ925xVshA13sYds6NOTU98sedaAjaW67NUAWY3kg.PNG/a_9a01116d19da4be7accc00cdda069dc7.png"
+               width="480" height="480" alt="Pulsera Hermès Clic HH con cierre en forma de H"
+               loading="lazy" decoding="async">
+          <figcaption><strong>Hermès</strong> · Comprueba la medida interior de la pulsera y cómo abre.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.christiandior.com/is/image/diorprod/943C449A4462C595_E01-2?%24default_GH%24=&amp;hei=640&amp;wid=640"
+               width="640" height="640" alt="Chaqueta acolchada Dior con motivo Oblique"
+               loading="lazy" decoding="async">
+          <figcaption><strong>Dior</strong> · Revisa el largo de manga y pide una foto de la cremallera.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="guides-title">
+      <h2 id="guides-title">Guías para decidir antes de pedir</h2>
+      <div class="articles">
+        <article>
+          <h3>Enlaces de productos UIDBuy</h3>
+          <p>Guarda el enlace original del vendedor de Weidian, Taobao o 1688 junto al nombre del artículo. Una ficha puede abrir aunque el color o la talla que guardaste ya no aparezcan.</p>
+          <ul>
+            <li>Anota vendedor, código de modelo, variante y fecha de revisión.</li>
+            <li>Si comparas dos vendedores, usa una fila por ficha para mantener separadas sus medidas y condiciones.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Guía de tallas UIDBuy</h3>
+          <p>Mide una prenda que ya te quede bien y compárala con la tabla del vendedor. Si la tabla indica ancho de pecho en plano, compáralo con otro ancho en plano.</p>
+          <ul>
+            <li>En zapatillas, mide ambos pies y usa la medida del mayor para consultar la tabla del modelo.</li>
+            <li>En conjuntos, comprueba las medidas de cada pieza y si se pueden elegir tallas distintas.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Fotos QC de UIDBuy</h3>
+          <p>Las fotos QC muestran detalles visibles del artículo inspeccionado. Si recibes fotos del almacén, comprueba que sean de tu pedido y que se vea la etiqueta de la talla.</p>
+          <ul>
+            <li>En calzado, pide fotos del perfil, la suela y el interior si necesitas comparar acabados.</li>
+            <li>En prendas, pide una foto con cinta métrica si la tabla y el corte te dejan dudas.</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Envío internacional con UIDBuy</h3>
+          <p>Antes de comparar opciones para España, México u otro destino, reúne el importe del artículo, el transporte interno y la estimación internacional en la misma moneda.</p>
+          <ul>
+            <li>Comprueba si el presupuesto usa peso real o volumétrico y si incluye el embalaje.</li>
+            <li>Consulta el plazo de devolución del vendedor antes de autorizar el envío internacional.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <h2 id="faq-title">Preguntas frecuentes</h2>
+      <div class="faq">
+        <details open>
+          <summary>¿Qué es un UIDBuy spreadsheet?</summary>
+          <p>Es una hoja de referencia para guardar enlaces de productos y comparar vendedor, color, talla y fecha de revisión antes de hacer un pedido.</p>
+        </details>
+        <details>
+          <summary>¿Qué enlaces se abren desde esta página?</summary>
+          <p>Las categorías abren sus secciones en Hipobuyfind. El resto de enlaces abre la portada de Hipobuyfind. Esta guía es independiente de UIDBuy.</p>
+        </details>
+        <details>
+          <summary>¿Una foto QC confirma la autenticidad?</summary>
+          <p>No. Una foto de control de calidad ayuda a revisar detalles visibles y la variante recibida. Para comprobar la autenticidad, busca documentación de procedencia o recurre a un servicio de autenticación.</p>
+        </details>
+        <details>
+          <summary>¿Qué hago si el enlace ya no abre?</summary>
+          <p>Busca el nombre exacto del modelo y la variante. Si aparece otra ficha, comprueba el vendedor, las fotos y las medidas antes de sustituir el enlace en tu hoja.</p>
+        </details>
+        <details>
+          <summary>¿Cómo comparo el envío a España u otro país?</summary>
+          <p>Pide una estimación para el país de destino con el peso y las dimensiones del paquete. Comprueba qué cargos están incluidos y si la tarifa se calcula por peso real o volumétrico.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="search-title">
+      <h2 id="search-title">Consultas para afinar tu búsqueda</h2>
+      <p>Elige una consulta según la categoría, la medida o el dato que te falte comprobar.</p>
+      <details class="queries">
+        <summary>Ver 24 consultas específicas</summary>
+        <ul>
+          <li>UIDBuy spreadsheet de zapatillas por modelo</li>
+          <li>cómo medir el pie para comprar zapatillas</li>
+          <li>cómo comparar tallas EU y centímetros en calzado</li>
+          <li>fotos QC de suelas y etiquetas de zapatillas</li>
+          <li>medidas de sudaderas de hombro caído</li>
+          <li>cómo medir el ancho de pecho en una camiseta</li>
+          <li>largo de manga en chaquetas acolchadas</li>
+          <li>medidas de cintura en pantalones cortos</li>
+          <li>contorno de gorras ajustables en centímetros</li>
+          <li>tallas distintas en conjuntos de dos piezas</li>
+          <li>tabla de tallas de ropa interior</li>
+          <li>corte de camisetas deportivas por talla</li>
+          <li>medida interior de una pulsera rígida</li>
+          <li>cómo guardar el enlace original de Weidian</li>
+          <li>cómo comprobar el vendedor en Taobao</li>
+          <li>cómo identificar una variante en 1688</li>
+          <li>qué hacer si el enlace de un producto caduca</li>
+          <li>cómo registrar la fecha de revisión de un enlace</li>
+          <li>qué fotos pedir al almacén antes de enviar</li>
+          <li>cómo comprobar el color en fotos QC</li>
+          <li>cómo calcular el peso volumétrico del paquete</li>
+          <li>cómo comparar presupuestos de envío a España</li>
+          <li>qué incluye una estimación de envío a México</li>
+          <li>cómo revisar el plazo de devolución del vendedor</li>
+        </ul>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a class="brand" href="https://www.hipobuyfind.com">hipobuyfind.com</a>
+      <p class="small">Guía editorial independiente. Las imágenes de marca son referencias visuales.</p>
+    </div>
+  </footer>
+</body>
+</html>
